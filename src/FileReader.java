@@ -26,21 +26,23 @@ public class FileReader {
      *  ^ same with LittleRankings where little is in column 1 and ranked bigs follow.
      * @throws Exception for invalid File in scanner object
      */
-    public void importer() throws Exception {
+    public void importer(File bigfile, File littlefile) throws Exception {
 
 
         //Turns bigFile into a list "bigData", a list of long strings for each Big entry
         //each of these entries will later be separated
-        Scanner scBig = new Scanner(new File("C:\\Users\\allis\\Documents\\bigfile.csv"));
+//        Scanner scBig = new Scanner(new File("C:\\Users\\allis\\Documents\\bigfile.csv"));
+        Scanner scBig = new Scanner(bigfile);
         scBig.useDelimiter("\\n");
-        ArrayList<String> bigData = new ArrayList();
+        ArrayList<String> bigData = new ArrayList<>();
         while (scBig.hasNext()) {
             bigData.add(scBig.next());
         }
 
         //Turns littleFile into list "littleData", a list of long strings for each Little entry
         //each of these entries will later be separated
-        Scanner scLittle = new Scanner(new File("C:\\Users\\allis\\Documents\\littlefile.csv"));
+//        Scanner scLittle = new Scanner(new File("C:\\Users\\allis\\Documents\\littlefile.csv"));
+        Scanner scLittle = new Scanner(littlefile);
         scLittle.useDelimiter("\\n");
         ArrayList<String> littleData = new ArrayList<>();
         while (scLittle.hasNext()) {
@@ -129,24 +131,24 @@ public class FileReader {
     }
 
 
-
-    public static void main(String[] args) throws Exception {
-        FileReader fr = new FileReader();
-        try {
-            fr.importer();
-        }
-        catch (Exception e){
-            System.out.println("Exception thrown");
-        }
-        fr.myMatching.prepareToMatch();
-
-        fr.myMatching.attemptMatching(fr);
-
-//        fr.myMatching.printResults();
-        new Application((fr.myMatching) );
-
-
-    }
-
+//
+//    public static void main(String[] args) throws Exception {
+//        FileReader fr = new FileReader();
+//        try {
+//            fr.importer();
+//        }
+//        catch (Exception e){
+//            System.out.println("Exception thrown");
+//        }
+//        fr.myMatching.prepareToMatch();
+//
+//        fr.myMatching.attemptMatching(fr);
+//
+////        fr.myMatching.printResults();
+//        new Application((fr.myMatching) );
+//
+//
+//    }
+//
 
 }
