@@ -10,4 +10,6 @@ Since the algorithm is not always able to match everyone, I decided to create a 
 ## Running the application
 The application takes in two CSV files: One that contains the big's name, followed by her top choices for her littles and why she wants that girl as her little. The other file contains the littles name with her top choices for her big and why she wants her. 
 
-Currently, the file names are hard-coded into the program. Lines 33 and 43 in the FileReader class should be replaced with the correct file names from your computer. Using an actual file reader is one of the next items on the to-do list for this project. 
+When the application is run (I typically run it in IntelliJ), the application will prompt you to upload two files. The first is the bigs file and the second file you upload will be the little file. I have uploaded two csv files to the repo to use as a demo. Be sure to upload the Big Example file first, followed by the Little Example file. 
+
+After those are uploaded, the GUI will appear and display the computed matches. It will also allow you to create new matches (the Little columns are editable and will allow you to type in the names of other Littles) and see who ranked who and what each person wrote about the bigs/littles they wanted. 
