@@ -14,9 +14,13 @@ public class MatchingForTwins extends Matching {
 
         //Big counter increases every time a new twin set is created
         bigCounter = 0;
-        maxBigsWithTwins = super.littlesPreferences.size() - super.bigsPreferences.size();
     }
 
+    @Override
+    public void prepareToMatch(){
+        super.prepareToMatch();
+        maxBigsWithTwins = super.littlesPreferences.size() - super.bigsPreferences.size();
+    }
 
 
     @Override

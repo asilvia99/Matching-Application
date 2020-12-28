@@ -80,7 +80,7 @@ public class InfoPanel extends JPanel{
 //        button.setPreferredSize(new Dimension(300,20));
 
         setLayout(new FlowLayout());
-        add(button);
+//        add(button);
         add(scoresLabel);
         add(unmatchedLilsTextField);
         add(unmatchedBigsTextField);

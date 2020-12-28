@@ -131,24 +131,4 @@ public class FileReader {
     }
 
 
-//
-//    public static void main(String[] args) throws Exception {
-//        FileReader fr = new FileReader();
-//        try {
-//            fr.importer();
-//        }
-//        catch (Exception e){
-//            System.out.println("Exception thrown");
-//        }
-//        fr.myMatching.prepareToMatch();
-//
-//        fr.myMatching.attemptMatching(fr);
-//
-////        fr.myMatching.printResults();
-//        new Application((fr.myMatching) );
-//
-//
-//    }
-//
-
 }
