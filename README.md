@@ -1,5 +1,6 @@
 # Matching-Application
-##Purpose
+
+## Purpose
 The Partner Matching Application (or Big-Little matching application) was created to assist in the big-little matching process for my sorority. Each year, new members (or littles) are paired with a older sister to be a mentor (their big). In order to create big-little pairs, all of the bigs and littles will rank their top choices for who they want their big or little to be. Traditionally, a team of board members would have to look through these rankings and make these matches by hand. Hours would be spent trying to create optimal pairs. In order to make this matching process easier, I wanted to create an algorithm that would create optimal pairs for you.
 
 To do this, I modified the Gale-Shapley stable matching algorithm, in order to produce "stable" matches. Matches are considered "unstable" if there are two people who would prefer to be with each other instead of their current partner. Thus, all matches are considered "stable" when there are no "unstable" matches. I had to modify this algorithm to account for various factors: (a) the algorithm should favor the little's preferences, (b) the littles do not rank every single big (and vice versa), so it is possible some girls will not be able to be matched, and (c) if there are more littles than bigs, some bigs will recieve two littles, or a set of "twins". In case c, additional logic had to be implemeted to decide which set of twins led to the most favorable matches. 
