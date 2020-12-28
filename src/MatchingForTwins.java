@@ -15,7 +15,6 @@ public class MatchingForTwins extends Matching {
         //Big counter increases every time a new twin set is created
         bigCounter = 0;
         maxBigsWithTwins = super.littlesPreferences.size() - super.bigsPreferences.size();
-        maxBigsWithTwins = 3;
     }
 
 
@@ -121,6 +120,17 @@ public class MatchingForTwins extends Matching {
         bigCounter++;
     }
 
+    /**
+     * group score is the sum of what each little ranked the big and what the big ranked them
+     * The sum of those four numbers is the group score
+     *
+     * The lower the score - the better the twin sets
+     * This indicates the big really wanted both littles and both littles wanted her
+     * @param l1
+     * @param l2
+     * @param b
+     * @return
+     */
     public int getGroupScore(String l1, String l2, String b) {
         int little1Score = getIndividualScore(l1,b);
         int little2Score = getIndividualScore(l2, b);

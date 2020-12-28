@@ -5,10 +5,13 @@ import java.util.ArrayList;
 
 public class UnmatchedTextArea extends JTextArea {
 
-    public UnmatchedTextArea(){
+    String littleorbigs;
+
+    public UnmatchedTextArea(String littleorbigs){
         super();
 
-        setPreferredSize(new Dimension(200,50));
+        this.littleorbigs = littleorbigs;
+        setPreferredSize(new Dimension(200,150));
         setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 5));
     }
 
@@ -17,7 +20,10 @@ public class UnmatchedTextArea extends JTextArea {
         for (String fl : freeList){
             unmatched = unmatched.concat("\n" + fl);
         }
-        setText("Unmatched littles: " + unmatched);
-        setPreferredSize(new Dimension(200,20*freeList.size()));
+        setText("Unmatched "+littleorbigs + ": " + unmatched);
+
+
+        //TODO: Adjust the size of the box depending on the number of free bigs/littles
+//        setPreferredSize(new Dimension(200,20*freeList.size()));
     }
 }

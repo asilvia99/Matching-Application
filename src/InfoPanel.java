@@ -43,10 +43,13 @@ public class InfoPanel extends JPanel{
 
     }
 
+    /**
+     * initalizes items on the panel and adds them to the panel
+     */
     private void initPanel(){
         setBackground(Color.decode("#D9E4E8"));
-        unmatchedLilsTextField = new UnmatchedTextArea();
-        unmatchedBigsTextField = new UnmatchedTextArea();
+        unmatchedLilsTextField = new UnmatchedTextArea("littles");
+        unmatchedBigsTextField = new UnmatchedTextArea("bigs");
 
         scoresLabel = new JLabel();
 
@@ -72,8 +75,9 @@ public class InfoPanel extends JPanel{
         whoRanksBigBox = new JComboBox<String>();
         whoRanksBigResultsLabel = new JTextArea();
 
-        button = new JButton("Click to display computed matches");
-        button.setPreferredSize(new Dimension(300,20));
+//        got rid of this button for now so I could improve its functionality
+//        button = new JButton("Click to display computed matches");
+//        button.setPreferredSize(new Dimension(300,20));
 
         setLayout(new FlowLayout());
         add(button);
@@ -95,6 +99,9 @@ public class InfoPanel extends JPanel{
         setPreferredSize(new Dimension(500,700));
     }
 
+    /**
+     * populates comboboxes with options
+     */
     private void fillPanel(){
         populateLittlesComboBox(littlesRankingsBox);
         populateLittlesComboBox(whoRanksLittleBox);
@@ -103,14 +110,17 @@ public class InfoPanel extends JPanel{
 
     }
 
+    /**
+     * sets action listeners for all items on the panel
+     */
     private void initActionListeners(){
 
-        button.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            createMatchesFrame();
-        }
-    });
+//        button.addActionListener(new ActionListener() {
+//        @Override
+//        public void actionPerformed(ActionEvent e) {
+//            createMatchesFrame();
+//        }
+//    });
 
         littlesRankingsBox.addActionListener(new ActionListener() {
         @Override
@@ -175,26 +185,13 @@ public class InfoPanel extends JPanel{
     }
 
 
-//    public void populateUnmatchedLittles(){
-//        String unmatched = " ";
-//        for (String fl : matching.freeLittles){
-//            unmatched = unmatched.concat("\n" + fl);
-//        }
-//        unmatchedLilsTextField.setText("Unmatched littles: " + unmatched);
-//        unmatchedLilsTextField.setPreferredSize(new Dimension(400,20*matching.freeLittles.size()));
-//    }
-//    public void populateUnmatchedBigs(){
-//        String unmatched = " ";
-//        for (String fl : matching.freeBigs){
-//            unmatched = unmatched.concat("\n" + fl);
-//        }
-//        unmatchedBigsTextField.setText("Unmatched Bigs: " + unmatched);
-//        unmatchedBigsTextField.setPreferredSize(new Dimension(400,20*matching.freeBigs.size()));
-//    }
-//
-
 
     //TODO: Maybe put this logic in matching instead and do the text setting here with the returned array
+
+    /**
+     * finds out which bigs ranks a certain little, puts that list in the respective text area
+     * @param selectedLittle
+     */
     public void findBigsWhoRankedLittle(String selectedLittle){
         ArrayList<String> bigsWhoWant = new ArrayList<>();
         for (Map.Entry big: matching.bigsPreferences.entrySet()){
@@ -209,6 +206,9 @@ public class InfoPanel extends JPanel{
 
     }
 
+    /**
+     * finds out which littles ranks a certain big, puts that list in the respective text area
+     */
     public void findLittlesWhoRankedBig(String selectedBig){
         ArrayList<String> littlesWhoWant = new ArrayList<>();
         for (Map.Entry little: matching.littlesPreferences.entrySet()){
@@ -218,13 +218,18 @@ public class InfoPanel extends JPanel{
                 littlesWhoWant.add(aLittle);
             }
         }
-//        infoPanel.whoRanksBigResultsLabel.setText(littlesWhoWant.toString());
         setLinedText(whoRanksBigResultsLabel, littlesWhoWant);
     }
 
 
     //TODO: fix this to make the size more accurate (just google it im sure theres a solution)
 
+    /**
+     * Sets the text area to a certain list and adjusts the size of the text area depending on the size of the list
+     * Size varies a bit and needs to be adjusted
+     * @param textbox
+     * @param ppltolist
+     */
     public void setLinedText(JTextArea textbox, ArrayList<String> ppltolist){
         String list = " ";
         for (String fl : ppltolist){
@@ -236,7 +241,10 @@ public class InfoPanel extends JPanel{
     }
 
 
-
+    /**
+     * Adds options to the littles combo box- including a clear option
+     * @param box
+     */
     void populateLittlesComboBox(JComboBox box) {
         box.addItem("Clear");
         TreeMap<String, ArrayList<String>> sortedlittles = new TreeMap<>();
@@ -248,6 +256,10 @@ public class InfoPanel extends JPanel{
     }
 
 
+    /**
+     * Adds options to the bigs combo box- including a clear option
+     * @param box
+     */
     public void populateBigsComboBox(JComboBox box){
         box.addItem("Clear");
         TreeMap<String, ArrayList<String>> sortedbigs = new TreeMap<>();
@@ -260,6 +272,10 @@ public class InfoPanel extends JPanel{
 
 
     //TODO: maybe make this its own class and fix it so you compare the new matches with the originals?
+
+    /**
+     * hitting a button should open a new window that allows you to compare the computer made matches to the handmade matches
+     */
     public void createMatchesFrame() {
         int numBigs = this.matching.bigsPreferences.size();
         JTable origMatchesTable = new JTable(numBigs + 1, 3);

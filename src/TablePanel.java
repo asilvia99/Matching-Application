@@ -68,17 +68,15 @@ public class TablePanel extends JPanel{
         model.addColumn("Little 2");
         model.addColumn("Little 2's ranking of Big");
         model.addColumn("Big's ranking of Little 2");
-        model.addColumn("Satisfaction Score");
         model.setNumRows(matching.bigsPreferences.size());
         table = new JTable(model);
         table.getColumnModel().getColumn(0).setPreferredWidth(110);
         table.getColumnModel().getColumn(1).setPreferredWidth(110);
-        table.getColumnModel().getColumn(2).setPreferredWidth(30);
-        table.getColumnModel().getColumn(3).setPreferredWidth(30);
+        table.getColumnModel().getColumn(2).setPreferredWidth(50);
+        table.getColumnModel().getColumn(3).setPreferredWidth(50);
         table.getColumnModel().getColumn(4).setPreferredWidth(110);
-        table.getColumnModel().getColumn(5).setPreferredWidth(30);
-        table.getColumnModel().getColumn(6).setPreferredWidth(30);
-        table.getColumnModel().getColumn(7).setPreferredWidth(30);
+        table.getColumnModel().getColumn(5).setPreferredWidth(50);
+        table.getColumnModel().getColumn(6).setPreferredWidth(50);
 
 
         table.setRowHeight(20);
@@ -304,21 +302,7 @@ public class TablePanel extends JPanel{
         isHumanEvent = true;
     }
 
-//
-//   I think this was used for satisfaction scores
-//
-//    public int parseScore(int row, int col) {
-//        if (table.getValueAt(row, lilRank1Col).equals("") || table.getValueAt(row, lilRank1Col) == null) {
-//            return 0;
-//        }
-//        if (table.getValueAt(row, col).equals("Not Ranked")) {
-//            return 0;
-//        }
-//        else {
-//            return Integer.parseInt(table.getValueAt(row, lilRank1Col).toString());
-//        }
-//
-//    }
+
 
     /**
      * Makes Big and Ranking Columns uneditable
