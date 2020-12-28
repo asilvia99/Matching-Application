@@ -21,6 +21,7 @@ public class Application extends JFrame {
 
     JFileChooser fileChooser;
 
+    //just test for commit i guess
 
     double compSatisfScore;
     double currSatisfScore;
