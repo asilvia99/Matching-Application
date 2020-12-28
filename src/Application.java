@@ -64,7 +64,7 @@ public class Application extends JFrame {
         setTitle("Big Little Matching");
         pack();
         setVisible(true);
-        setSize(1400, 800);
+        setSize(1500, 800);
 
 
 

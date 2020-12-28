@@ -48,8 +48,8 @@ public class InfoPanel extends JPanel{
      */
     private void initPanel(){
         setBackground(Color.decode("#D9E4E8"));
-        unmatchedLilsTextField = new UnmatchedTextArea("littles");
-        unmatchedBigsTextField = new UnmatchedTextArea("bigs");
+        unmatchedLilsTextField = new UnmatchedTextArea("littles", new JTextArea());
+        unmatchedBigsTextField = new UnmatchedTextArea("bigs", new JTextArea());
 
         scoresLabel = new JLabel();
 
